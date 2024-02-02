@@ -2,6 +2,8 @@ from datetime import datetime
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 
+from plugins.airflowPlugin import PluginOperator
+
 with DAG(
     dag_id="hello-world",
     start_date=datetime(2023, 8, 15),
@@ -17,5 +19,7 @@ with DAG(
 
     task4 = BashOperator(task_id="task4", bash_command="echo task4")
 
+    task5 = PluginOperator()
+
     # Set dependencies between tasks
-    task1 >> task2 >> task3 >> task4
+    task1 >> task2 >> task3 >> task4 >> task5
