@@ -19,7 +19,7 @@ with DAG(
 
     task4 = BashOperator(task_id="task4", bash_command="ls")
 
-    task5 = PluginOperator()
+    task5 = PluginOperator(task_id="plugin")
 
     # Set dependencies between tasks
     task1 >> task2 >> task3 >> task4 >> task5
