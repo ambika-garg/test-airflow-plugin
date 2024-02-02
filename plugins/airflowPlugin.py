@@ -4,7 +4,14 @@ from airflow.models import BaseOperator
 
 # Will show up under airflow.operators.test_plugin.PluginOperator
 class PluginOperator(BaseOperator):
-    pass
+    def __init__(self, name: str, **kwargs) -> None:
+        super().__init__(**kwargs)
+        self.name = name
+
+    def execute(self, context):
+        message = f"Hello {self.name}"
+        print(message)
+        return message
 
 # Defining the plugin class
 class AirflowTestPlugin(AirflowPlugin):
