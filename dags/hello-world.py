@@ -15,7 +15,7 @@ with DAG(
 
     task2 = BashOperator(task_id="task2", bash_command="echo task2")
 
-    task3 = BashOperator(task_id="task3", bash_command="echo task3")
+    task3 = BashOperator(task_id="task3", bash_command="pwd")
 
     task4 = BashOperator(task_id="task4", bash_command="ls")
 
