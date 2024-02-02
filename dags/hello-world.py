@@ -2,7 +2,7 @@ from datetime import datetime
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 
-from airflowPlugin import PluginOperator
+# from airflowPlugin import PluginOperator
 
 with DAG(
     dag_id="hello-world",
